@@ -1,0 +1,56 @@
+Here are the results step 1: Quick health checks:
+
+curl -s http://localhost:9200
+{
+    "name": "SOME_NAME",
+    "cluster_name": "elasticsearch",
+    "cluster_uuid": "SOME_ID",
+    "version": {
+        "number": "8.13.4",
+        ......
+    }
+}
+
+curl -s http://localhost:9200/_cluster/health?pretty
+{
+    "cluster_name": "elasticsearch",
+    "status": "green",
+    "timed_out": false,
+    "number_of_nodes": 1,
+    "number_of_data_nodes": 1,
+    "active_primary_shards": 1014,
+    "active_shards": 1014,
+    "relocating_shards": 0,
+    "initializing_shards": 0,
+    "unassigned_shards": 0,
+    "delayed_unassigned_shards": 0,
+    "number_of_pending_tasks": 0,
+    "number_of_in_flight_fetch": 0,
+    "task_max_waiting_in_queue_millis": 0,
+    "active_shards_percent_as_number": 100.0
+}
+
+curl -s http://localhost:9200/_cat/indices?v
+-> so many "green open" outputs
+
+curl -s http://localhost:9200/_cat/shards?v
+-> so many "STARTED" outputs
+
+curl -s -XGET "http://localhost:9200/_cluster/allocation/explain?pretty"
+-> no output 
+
+curl -s http://localhost:9200/_cat/allocation?v
+shards: 1014
+disk.indices: 407.2mb
+disk.used: 138.9gb
+disk.avail: 812.9gb
+disk.percent: 14
+......
+
+curl -s http://localhost:9600/actuator/health
+-> Each "status" says "UP"
+
+curl -s http://localhost:8080/operate/api/health
+-> Some HTML, but doesn't say any error
+
+What next?

@@ -1,0 +1,11 @@
+1: Elasticsearch stuck in an infinite loop: Failed to import process elements
+2: The results of quick health checks
+3: The basics of BPMN (Business Process Model and Notation) process execution
+4: When you want business logic to live in Java code rather than BPMN condition expressions
+5: How process variables are passed between job workers
+6: A BPMN file without any <bpmn:conditionExpression> is not automatically “wrong”
+7: Use BigDecimal instead of Double for money or precise decimal arithmetic
+8: Two concrete, real-life mini-processes that fit the structure (Java @JobWorker methods + a BPMN per worker)
+9: When the direction of the program flow changes and some tasks are skipped
+10: What are the relationships between "incoming", "outgoing", "exclusiveGateway", "default", "BPMNEdge" etc?
+11: Take the Flow_123abc example and turn it into a minimal diagram

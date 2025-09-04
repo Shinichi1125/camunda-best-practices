@@ -1,0 +1,13 @@
+Earlier, when I was studying one of the bpmn files in the codebase, I found conditionExpression like this:
+
+<bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${SOME_CONDITION}</bpmn:conditionExpression>
+
+, which I asked a few questions about. 
+
+Now I'm taking a look at another bpmn file, which was added by the latest merge to the development branch, and this time, there is no conditionExpression anywhere in the file. 
+
+In this case, which of the followings are conceivable?
+
+1: This bpmn file is incomplete and lacks some logics. 
+2: The program flow always enters the prcess defined in this bpmn file, and that's why there is no need to add conditionExpression here. 
+3: Any other possibilities?

@@ -1,0 +1,29 @@
+To me, BPMN looks still cryptic. 
+
+Can you give me a few examples that reflect concrete real life case scenarios, which fit in the following structure?
+
+SomeWorker.java:
+There are a few methods that are annotated with JobWorker:
+
+@JobWorker(type = "somePlan", autocomplete = ${A_BOOLEAN_VALUE})
+public void somePlan(ActivatedJob job, JobClient client) throws Exception {
+  Map<String, Object> variableMap = job.getVariablesAsMap();
+
+  // Get some variables via variableMap.get()
+  // Do something, like calling functions defined in the same file
+  // Add or update some variables via variableMap.put()
+
+  client.newCompleteCommand(job).variables(job.getVariablesAsMap()).send().join();
+}
+
+// another method, whose name is initializeXXX, whose basic structure looks similar to somePlan:
+  Map<String, Object> variableMap = job.getVariablesAsMap();
+  // Get some variables via variableMap.get()
+  // Do something, like calling functions defined in the same file
+  // Add or update some variables via variableMap.put()
+  client.newCompleteCommand(job).variables(job.getVariablesAsMap()).send().join();
+
+SomeProcess.bpmn: // bpmn file for SomeWorker.java
+
+AnotherWorker.java: Similar to SomeWorker in terms of having a method annotated with JobWorker like the one above
+AnotherProcess.bpmn: // bpmn file for AnotherWorker.java

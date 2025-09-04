@@ -1,0 +1,43 @@
+I've been using Elasticsearch for a few months, and it had been working fine until yesterday. 
+For some reason, it suddenly stopped working yesterday. 
+
+Ordinarily, after starting Elasticsearch by ./c8run.exe start command on my Windows machine, 
+I could run a Java program, make a POST request with a JSON body file, 
+after which either running (green) or failed (red) processes appear in the UI of the Operate dashboard. 
+
+After it stopped working properly, neither one of green and red process appear. 
+I checked the console of the Java program, but no error or expection was observed. 
+
+Here is a set of tweaks that I have tried: 
+- Rebooting the PC
+- Removing the existing Camunda and reinstalling a newer version (previous: 8.7.2, new one: 8.7.11)
+- Also making sure that redundant files / folders are removed:
+  * connector-runtime-bundle-8.7.2-with-dependencies.jar (removed)
+  * connector-runtime-bundle-8.7.7-with-dependencies.jar
+  * camunda-zeebe-8.7.2/ (removed)
+  * camunda-zeebe-8.7.11/
+- Rebooting the PC once again
+
+, but after all of them still the same symptom remains. 
+
+I ran grep -r -i error under camunda8-run-8.7-windows-x86_64/c8run/log folder, and all of the 3 files: 
+- camunda.log
+- connectors.log
+- elasticsearch.log
+contain error messages. 
+
+I'll raise a few examples:
+
+[camunda.log]
+ERROR:
+io.camunda.operate.zeebeimport.elasticsearch.ElasticsearchRecordsReader - Exception occurred for alias [zeebe-record-decision-requirements], 
+while obtaining next Zeebe records batch: Some ES shards failed. Ignoring search response and retrying, to prevent data loss. 
+
+[connectors.log]
+ERROR:
+i.c.c.r.i.i.ProcessDefinitionImporter: Failed to import process elements
+
+[elasticsearch.log]
+--add-modules=jdk.incubator.vector, -XX:+HeapDumpOnOutOfMemoryError, -XX:+ExitOnOutOfMemoryError, -XX:HeapDumpPath=data, -XX:ErrorFile=logs/hs_err_pid%p.log,
+
+What should I focus on to debug this?

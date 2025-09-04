@@ -1,0 +1,16 @@
+In the context of Camunda, when you have a method in XxxWorker.java file like this: 
+
+@JobWorker(type = "someKindOfWork", autoComplete = true)
+public void someKindOfWork(ActivatedJob job, JobClient client) throws JsonProcessingException {
+  SomeDTO someDTO = objectMapper.readValue((String) job.getVariable(SOME_KEY), SomeDTO.class);
+
+  variableMap.put(ANOTHER_KEY, true);
+  ......
+}
+
+Can you assume that: 
+
+- the variable obtained by SOME_KEY has already been stored in another method (of possibly another Worker file)
+- the variable stored by put with the key ANOTHER_KEY is likely to be referenced in another Worker
+
+?

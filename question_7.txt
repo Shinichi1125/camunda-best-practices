@@ -1,0 +1,5 @@
+When doing some calculations in Java with variables whose data types are Double, it can result in an "ugly" output, 
+for example 755.33 - 405.06 = 350.27000000000004 instead of "clean" 350.27. 
+
+This could potentially be a problem, especially when those variables are used for calculating money, right?
+What's the best practice in Java to "keep the calculation clean"?

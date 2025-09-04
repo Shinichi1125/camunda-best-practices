@@ -1,0 +1,53 @@
+Okay, let me double-check if I correctly understand how it works by asking the following question. 
+
+Let's assume that the team I'm working for has some members who are not familiar with BPMN. 
+Speaking of the example of "Normal Flow VS Manager Approval Flow", is it also possible to structure it the following way, 
+so that the Java code has more control over condition checking?
+
+[BPMN file]
+<bpmn:exclusiveGateway id="Gateway_CheckAmount" name="Check Amount">
+  <bpmn:outgoing>Flow_Normal</bpmn:outgoing>
+  <bpmn:outgoing>Flow_ManagerApproval</bpmn:outgoing>
+</bpmn:exclusiveGateway>
+
+<bpmn:sequenceFlow id="Flow_Normal" sourceRef="Gateway_CheckAmount" targetRef="NormalApproval">
+  <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression"><![CDATA[${enterManagerApproval == false}]]></bpmn:conditionExpression>
+</bpmn:sequenceFlow>
+
+<bpmn:sequenceFlow id="Flow_ManagerApproval" sourceRef="Gateway_CheckAmount" targetRef="ManagerApproval">
+  <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression"><![CDATA[${enterManagerApproval == true}]]></bpmn:conditionExpression>
+</bpmn:sequenceFlow>
+
+[Java code]
+public void checkAmountWorker(final ActivatedJob job, final JobClient client) {
+    Map<String, Object> vars = job.getVariablesAsMap();
+
+    vars.put("enterManagerApproval", false);
+
+    // Let's not care too much about where the "amount" comes from, though it's not explicitly explained in this code snippet
+    if(amount > 10000) {
+      vars.put("enterManagerApproval", true);
+    }
+
+    client.newCompleteCommand(job)
+          .variables(vars)
+          .send()
+          .join();
+}
+
+Also, is it possible to combine multiple conditions to determine if it should enter Flow_ManagerApproval this way?
+
+// If you want to make it enter the flow when the amount is more than 10000 AND certain confidential information is contained. 
+if(amount > 10000 && confidential == true) {
+  vars.put("enterManagerApproval", true);
+}
+
+// If you want to make it enter the flow when the amount is more than 10000 OR certain confidential information is contained. 
+if(amount > 10000 || confidential == true) {
+  vars.put("enterManagerApproval", true);
+}
+
+This way, the BPMN file doesn't need to be modified, and even developers who are not familiar with BPMN can easily join the development 
+and/or maintenance of the code, as they only need to care about the Java code. 
+
+Is my understanding correct?

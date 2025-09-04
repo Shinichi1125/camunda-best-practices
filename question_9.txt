@@ -1,0 +1,10 @@
+Let's say that there is PreviousWorker.java as well, and it has a program flow like this:
+
+// Do something
+// Do another thing
+
+// If a certain condition is met, enter SomeWorker
+// Otherwise, do the last thing 
+
+If SomeWorker, which we took a look at previously is triggered like this, will the "last thing" part skipped, 
+because PreviousWorker.java and SomeWorker.java are separate files and there is also likely a bpmn file for PreviousWorker.java?

@@ -1,0 +1,12 @@
+Can you explain how IDs in bpmn files work?
+
+Let's say that I see results like this when I run grep Flow_123abc someProcess.bpmn:
+
+<bpmn:incoming>Flow_123abc</bpmn:incoming>
+<bpmn:exclusiveGateway id="Gateway_0123hmf" name="some worker type" default="Flow_123abc">
+
+<bpmn:outgoing>Flow_123abc</bpmn:outgoing>
+<bpmndi:BPMNEdge id="Flow_123abc" bpmnElement="Flow_123abc">
+
+Given these pieces of information, including keywords like "incoming", "outgoing", "exclusiveGateway", "default", "BPMNEdge" etc, 
+tell me how they are related to each other, along with a few concrete real life examples. 

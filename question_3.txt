@@ -1,0 +1,5 @@
+In the context of Java, what does this mean?
+"When the condition X is met, it enters the path in someProcess.bpmn."
+
+In what kind of case scenario is this needed?
+Can you also include a few simple example code snippets both in Java and bpmn?
