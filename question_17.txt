@@ -1,0 +1,8 @@
+Okay, let me double-check. 
+In my local device, running the command:
+ls ~/Downloads/ | grep -i camunda 
+only returns:
+camunda8-run-8.7-windows-x86_64
+. 
+
+Does it confirm that the tool to open/edit the diagram is missing?

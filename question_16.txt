@@ -1,0 +1,4 @@
+Where can I open the existing .bpmn file's corresponding diagram in Camunda Modeler’s UI?
+In my environment, Camunda's Elasticsearch has already been installed. 
+I can visit the UI via localhost8080, and Dashboard, Processes, and Decisions tabs are available there. 
+Am I at the right place?
