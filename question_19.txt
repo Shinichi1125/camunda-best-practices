@@ -1,0 +1,13 @@
+Let's say that there are 3 processes: initialProcess, someProcess, anotherProcess. 
+
+And someProcess has conditional program flows like this:
+- At point X, if the condition Y is met, do job A, otherwise do job B.  
+
+When it comes to the relationship between point X, condition Y, job A, job B, 
+I can imagine that I can find all of them within the diagram of someProcess in Camunda Modeler.
+
+However, to what extent is the information available, when it comes to how the 3 processes are related to each other?
+In our previous discussion, when there is a flag like "enterSomeProcess = true" defined in the corresponding .bpmn file and Java file, 
+it's pretty straightforward to see on what condition the program flow goes into someProcess. 
+
+Are there any other flags to take a closer look at to figure out the connections between the processes?

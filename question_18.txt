@@ -1,0 +1,7 @@
+I've downloaded Camunda Modeler and opened one of the existing .bpmn files. 
+When I make an any modification in the diagram that causes a code change in the corresponding .bpmn file, does git detect it?
+If it does, to what extent are Camunda Modeler and local git synchronized?
+For example, when a diagram is modified and the .bpmn file is also affected, if I undo the change by git stash, 
+does it also automatically revert the change in the diagram?
+Also, when git detects the code change with the modified diagram, will the version control see the file as unchanged 
+once the diagram is reverted to the original state?

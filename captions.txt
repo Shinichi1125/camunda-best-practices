@@ -15,3 +15,5 @@
 15: What it looks like in Camunda Modeler’s UI
 16: One of the most common confusions in Camunda
 17: The diagram editor (Camunda Modeler) is a separate desktop app
+18: To what extent are Camunda Modeler and local git synchronized?
+19: Thinking at the process orchestration level
