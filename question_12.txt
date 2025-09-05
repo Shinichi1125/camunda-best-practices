@@ -1,0 +1,2 @@
+Based on one of your previous comments, Flow_123abc is one example of Camunda Modeler auto-generate IDs. 
+Does it mean that .bpmn files are usually not manually written but auto-generated, just like pom.xml files are auto-generate by Spring Boot?

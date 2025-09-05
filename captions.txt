@@ -9,3 +9,7 @@
 9: When the direction of the program flow changes and some tasks are skipped
 10: What are the relationships between "incoming", "outgoing", "exclusiveGateway", "default", "BPMNEdge" etc?
 11: Take the Flow_123abc example and turn it into a minimal diagram
+12: .bpmn files are usually auto-generated (by Camunda Modeler)
+13: Roadmap for changing the flow in Camunda Modeler tool
+14: before vs. after in both a visual sketch and a BPMN XML snippet
+15: How it looks in Camunda Modeler’s UI

@@ -1,0 +1,18 @@
+Let's say that there is an existing .bpmn file, and the current version of PreviousWorker expects this program flow:
+
+// Do something 
+// Do another thing 
+// Do the last thing (always executed)
+// If a certain condition is met, enter SomeWorker 
+
+And let's say that the program flow above is to be changed like this:
+
+// Do something 
+// Do another thing 
+// If a certain condition is met, enter SomeWorker 
+// Otherwise, do the last thing (skipped if it enters SomeWorker)
+
+In a case scenario like this, how do I make the change?
+As the existing .bpmn file was most likely auto-generated, I assume there should be a tool to generate it. 
+
+Can you first show me a roadmap, including the usage of the tool as well?
