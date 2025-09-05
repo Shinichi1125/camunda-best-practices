@@ -1,0 +1,7 @@
+As for anotherProcess's .bpmn file, other than the ID "Process_anotherProcess", I've found a few more IDs:
+- id="Activity_A"
+- id="Activity_B"
+
+Again, I've searched the entire project, but this time, I only found Activity_A and Activity_B within anotherProcess .bpmn file itself. 
+
+Does this suggest that there is no process that calls anotherProcess under any condition at this moment?

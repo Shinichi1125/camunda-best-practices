@@ -17,3 +17,7 @@
 17: The diagram editor (Camunda Modeler) is a separate desktop app
 18: To what extent are Camunda Modeler and local git synchronized?
 19: Thinking at the process orchestration level
+20: somethingRelated.bpmn contains a Call Activity
+21: Is there no process that calls anotherProcess under any condition at this moment?
+22: How to trace a Call Activity chain in Operate
+23: How to check which variables got passed from somethingRelated into anotherProcess inside Operate
